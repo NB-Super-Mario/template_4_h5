@@ -1,0 +1,84 @@
+@customRem: 375/10rem;
+@ActionSheetPrefixCls: am-action-sheet;
+.@{ActionSheetPrefixCls} {
+  &-wrap {
+    touch-action: none; //-webkit-backface-visibility: hidden;
+  }
+}
+
+.ios {
+  .@{ActionSheetPrefixCls} {
+    &-content {
+      @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-min-device-pixel-ratio: 3),
+        screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3),
+        //iphone XR only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+        only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 2) {
+        padding-bottom: 34 / @customRem;
+      }
+    }
+  }
+}
+
+@modalPrefixClass: am-modal;
+.@{modalPrefixClass} {
+  &-mask {
+    -webkit-backface-visibility: hidden;
+  }
+  &-wrap {
+    touch-action: none;
+    -webkit-backface-visibility: hidden;
+  }
+  &-popup {
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+.ios {
+  .@{modalPrefixClass} {
+    &-popup {
+      .am-modal-content {
+        @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-min-device-pixel-ratio: 3),
+          only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3),
+          only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+          only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 2) {
+          padding-bottom: 34 / @rem;
+        }
+      }
+    }
+  }
+}
+
+@pull-to-refresh: am-pull-to-refresh;
+.@{pull-to-refresh} {
+  &-content {
+    transform-origin: left top 0;
+    &-wrapper {
+      overflow: auto;
+    }
+  }
+  &-indicator {
+    height: 50 / @rem;
+  }
+  &-down .@{pull-to-refresh}-indicator {
+    margin-top: -50 / @rem;
+    font-size: 12 / @rem;
+  }
+  &-up .@{pull-to-refresh}-indicator {
+    margin-bottom: -50 / @rem;
+  }
+}
+
+@toastPrefixCls: am-toast;
+.@{toastPrefixCls} {
+  > span {
+    max-width: 60%;
+  }
+  &&-nomask {
+    -webkit-backface-visibility: hidden;
+  }
+  &-notice-content {
+    .@{toastPrefixCls}-text {
+      min-width: 90 / @rem;
+    }
+  }
+}

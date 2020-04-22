@@ -1,0 +1,49 @@
+@rem: 375/10rem;
+@effect: cubic-bezier(0.4, 0, 0.2, 1);
+@primary-font: PingFang-SC-Regular, STHeiTi, Arial, sans-serif;
+@primary-color: #1d1e30;
+@text-base-color: #333;
+@text-base-secondary-color: #666;
+@header-height: 88;
+@sub-header-height: 83; //  包括3px描边
+
+// 浮动router
+@float-router-zindex: 21;
+@float-router-header-zindex: 22;
+@float-router-line-zindex: 21;
+
+@c2cColor: hsl(141, 44%, 48%);
+@c2cDarkColor: hsl(141, 44%, 40%);
+@dwColor: hsl(38, 88%, 62%);
+@dwDarkColor: hsl(38, 88%, 58%);
+@defaultColor: #808080;
+@defaultBorderColor: #808080;
+@textColor: #404041;
+@btnTextColor: #231f20;
+@textStrongColor: red;
+
+// vechicle 添加车辆信息页变量
+@vehicle-font-size-h4: 16 / @rem;
+@vehicle-font-size-h5: 14 / @rem;
+@vehicle-font-size-h6: 13 / @rem;
+@vehicle-font-color: #333;
+@vehicle-error-color: #e60012;
+
+// 渐隐动画
+.fade-enter {
+  opacity: 0.01;
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: all 300ms ease-in;
+  }
+}
+
+.fade-leave {
+  opacity: 1;
+
+  &.fade-leave-active {
+    opacity: 0.01;
+    transition: all 300ms ease-in;
+  }
+}

@@ -1,0 +1,245 @@
+@import '../../../css/common.less';
+@loadingIconPrefixClass: loading;
+@foreground: #ccc;
+@background: #fe9a00;
+
+.@{loadingIconPrefixClass} {
+  &-main {
+
+    // display: inline-block;
+    &.dib {
+      display: inline-block;
+    }
+  }
+
+  &-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+
+  &-car {
+    width: 68/@rem;
+    height: 37/@rem;
+    background-image: url('./img/car.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    margin: 25/@rem auto 0;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 15/@rem;
+      height: 15/@rem;
+      position: absolute;
+      bottom: 0;
+      background-image: url('./img/wheel.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+
+    &::before {
+      left: 6.5/@rem;
+      .animation(car 0.6s infinite linear);
+    }
+
+    &::after {
+      right: 6.5/@rem;
+      background-size: 100% 100%;
+      transform: rotate(180deg);
+      .animation(car 0.6s infinite linear);
+    }
+
+    .c2c & {
+      width: 68/@rem;
+      height: 32/@rem;
+      background-image: url('./img/c2c-car.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 15/@rem;
+        height: 15/@rem;
+        position: absolute;
+        bottom: 0;
+        background-image: url('./img/c2c-wheel.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;
+      }
+
+      &::before {
+        left: 6/@rem;
+        .animation(car 0.5s infinite linear);
+      }
+
+      &::after {
+        right: 6/@rem;
+        .animation(car 0.5s infinite linear);
+      }
+    }
+  }
+
+  &-icon {
+
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .loader {
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.5/@rem solid @foreground;
+      border-right: 1.5/@rem solid @foreground;
+      border-bottom: 1.5/@rem solid @foreground;
+      border-left: 1.5/@rem solid fade(@background, 100%);
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: loading 1.25s infinite linear;
+      animation: loading 1.25s infinite linear;
+    }
+  }
+
+  &.bg-type {
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    .transform(translate3d(-50%, -50%, 1px));
+    height: 100/@rem;
+    width: 100/@rem;
+    background: rgba(0, 0, 0, .9);
+    .border-radius(5/@rem);
+
+    .loader,
+    .loader:after {
+      margin: 15/@rem auto 0;
+      height: 35/@rem;
+      width: 35/@rem;
+    }
+
+    .text-info {
+      padding-top: 10/@rem;
+      font-size: 14/@rem;
+      color: #fff;
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  &.horizontal-type {
+    height: 20/@rem;
+    .clear-after();
+
+    .loader,
+    .loader:after {
+      height: 20/@rem;
+      width: 20/@rem;
+    }
+
+    .loading-icon {
+      float: left;
+      height: 20/@rem;
+    }
+
+    .text-info {
+      float: left;
+      padding-left: 10/@rem;
+      font-size: 14/@rem;
+      color: #666;
+      text-align: center;
+      line-height: 20/@rem;
+    }
+  }
+
+  &.vertical_type {
+    height: 45/@rem;
+
+    .loader,
+    .loader:after {
+      margin: 15/@rem auto 0;
+      height: 30/@rem;
+      width: 30/@rem;
+    }
+
+    .text-info {
+      padding-top: 10/@rem;
+      font-size: 14/@rem;
+      color: #666;
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  &.normal_type {
+    height: 20/@rem;
+    .clear-after();
+
+    .loader,
+    .loader:after {
+      height: 20/@rem;
+      width: 20/@rem;
+    }
+
+    .loading-icon {
+      float: left;
+      height: 20/@rem;
+    }
+
+    .text-info {
+      display: none;
+      float: left;
+      padding-left: 10/@rem;
+      font-size: 14/@rem;
+      color: #666;
+      text-align: center;
+      line-height: 20/@rem;
+    }
+  }
+}
+
+@-webkit-keyframes loading {
+  .loading-frames;
+}
+
+@keyframes loading {
+  .loading-frames;
+}
+
+.loading-frames() {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes car {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

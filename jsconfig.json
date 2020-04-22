@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/scripts/components/*"],
+      "@actions/*": ["src/scripts/actions/*"],
+      "@api/*": ["src/scripts/api/*"],
+      "@routes/*": ["src/scripts/routes/*"],
+      "@util/*": ["src/scripts/util/*"]
+    }
+  }
+}

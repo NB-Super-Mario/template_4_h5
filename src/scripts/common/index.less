@@ -1,0 +1,51 @@
+@import "../../css/common.less";
+@import "./reset.less";
+@import "./fonts-m.less";
+@import "./antd-theme.less";
+@import "~animate.less/animate.css";
+
+html,
+body {
+  .user-select(none);
+  height: 100%;
+  background: #f5f4f2;
+}
+
+@loadingPrefixClass: loading;
+
+.@{loadingPrefixClass} {
+  &-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    .display(flex);
+    .align-items(center);
+    .justify-content(center);
+  }
+
+  &-content {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+  }
+
+  &-bounce {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgb(219, 155, 36);
+    opacity: 0.6;
+    position: absolute;
+    top: -50%;
+    left: 0;
+    .animation(sk-bounce 2s infinite ease-in-out);
+
+    &&-second {
+      .animation-delay(-1s);
+    }
+  }
+}
+
+.keyframes(~"sk-bounce, 0%, 100% { transform: scale(0.0);transform: scale(0.0);} 50% { transform: scale(1.0);transform: scale(1.0);}");
