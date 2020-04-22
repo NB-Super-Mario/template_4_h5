@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.10.3",
-    "@nbsupermario/cli": "^1.0.3",
+    "@nbsupermario/cli": "^1.0.5",
     "add-dom-event-listener": "^1.0.2",
     "animate.less": "^2.2.0",
     "antd-mobile": "^2.2.8",
