@@ -1,5 +1,5 @@
 {
-  "name": "{{{name}}}",
+  "name": "template_4_h5",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.10.3",
-    "@nbsupermario/cli": "^1.0.5",
+    "@nbsupermario/cli": "^1.0.13",
     "add-dom-event-listener": "^1.0.2",
     "animate.less": "^2.2.0",
     "antd-mobile": "^2.2.8",
