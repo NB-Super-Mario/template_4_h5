@@ -1,7 +1,6 @@
 import React from 'react';
-import { Switch, BrowserRouter } from 'react-router-dom';
+import { Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import RouteWithSubRoutes from '@routes/routeWithSubRoutes';
-import Home from '@routes/home/index/home';
 
 import LoadableComponent from '@routes/loadable-component';
 
@@ -10,7 +9,7 @@ const routes = [
   {
     exact: true, // 是否是默认
     path: '/',
-    component: () => <Home />,
+    component: () => <Redirect to="/home" />,
   },
   {
     path: '/home',

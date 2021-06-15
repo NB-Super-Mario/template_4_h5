@@ -10,6 +10,11 @@ import './index.less';
 
 const routes = [
   {
+    exact: true, // 是否是默认
+    path: '/home',
+    component: LoadableComponent(() => import('@routes/home/index/home'))(),
+  },
+  {
     path: '/home/detail',
     component: LoadableComponent(() => import('@routes/home/detail'))(),
   },
