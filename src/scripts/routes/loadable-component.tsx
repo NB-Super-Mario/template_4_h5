@@ -1,24 +1,27 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 
-import Loading from '@components/loading';
+import Loading, { LoadingType } from '@components/loading/index';
 
-const LoadingComponent = () => <Loading type={Loading.BG_TYPE} visable fixed />;
+export const LoadingComponent = () => (
+  <Loading type={LoadingType.BG_TYPE} visable fixed />
+);
 
-export const LoadableComponent = (
+const LoadableComponent = (
   loader: any,
-  opts?:
-    | Loadable.OptionsWithoutRender<unknown>
-    | Loadable.OptionsWithRender<unknown, object>
-    | undefined
+  opts?: any
+  // | Loadable.OptionsWithoutRender<unknown>
+  // | Loadable.OptionsWithRender<unknown, object>
+  // | undefined
 ) => () =>
   Loadable({
     loader,
     delay: 200,
     timeout: 10000,
     loading: LoadingComponent,
-    ...opts
+    ...opts,
   });
+export default LoadableComponent;
 
 /* 
 使用实例

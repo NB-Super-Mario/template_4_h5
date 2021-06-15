@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, Store, Middleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
-import history from '../routes/history';
+import history from '@routes/history';
 import createRootReducer from '../reducers';
 
 let store: Store;

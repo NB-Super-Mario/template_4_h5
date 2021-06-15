@@ -3,10 +3,14 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/scripts/components/*"],
+      "@common/*": ["src/scripts/common/*"],
       "@actions/*": ["src/scripts/actions/*"],
       "@api/*": ["src/scripts/api/*"],
       "@routes/*": ["src/scripts/routes/*"],
-      "@util/*": ["src/scripts/util/*"]
+      "@util/*": ["src/scripts/util/*"],
+      "@hooks/*": ["src/scripts/hooks/*"],
+      "@constants/*": ["src/scripts/constants/*"],
+      "@containers/*": ["src/scripts/containers/*"]
     }
   }
 }

@@ -1,44 +1,36 @@
 import React from 'react';
-import { Redirect, Switch } from 'react-router-dom';
-import RouteWithSubRoutes from './routeWithSubRoutes';
-import Loading from '@components/loading';
-import { connect } from 'react-redux';
+import { Switch, BrowserRouter } from 'react-router-dom';
+import RouteWithSubRoutes from '@routes/routeWithSubRoutes';
+import Home from '@routes/home/index/home';
 
-import { LoadableComponent } from './loadable-component';
+import LoadableComponent from '@routes/loadable-component';
 
 // 顶级路由配置
 const routes = [
   {
     exact: true, // 是否是默认
     path: '/',
-    // component: LoadableComponent('./coupon/index/index')(),
-    component: () => <Redirect to="/home" />
+    component: () => <Home />,
   },
   {
     path: '/home',
-    component: LoadableComponent(() => import('./home/index/index'))()
-    // component: AsyncHome
-  }
+    component: LoadableComponent(() => import('./home/index'))(),
+  },
 ];
 
 const BaseRouter = () => {
   return (
     <div className="main">
-      <Switch>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </Switch>
-      <CommonLoading />
+      <BrowserRouter>
+        <Switch>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
-
-const CommonLoading = connect(state => {
-  return state.common;
-})(props => {
-  return <Loading visable={props.loading} fixed type={Loading.BG_TYPE} />;
-});
 
 /**
  * 根据json 动态配置路由

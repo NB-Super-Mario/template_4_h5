@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-const RouteWithSubRoutes = route => (
+const RouteWithSubRoutes = (route: any) => (
   <Route
     exact={!!route.exact}
     path={route.path}
@@ -9,7 +9,6 @@ const RouteWithSubRoutes = route => (
   />
 );
 export default RouteWithSubRoutes;
-
 /* const RouteWithSubRoutes = route => (
   <Authorized
     authority={route.authority}
