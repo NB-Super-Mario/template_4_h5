@@ -8,14 +8,10 @@ const Home = () => {
   return (
     <div className="detail-bg">
       <h1>首页</h1>
-      <Button
-        type="primary"
-        inline
-        onClick={() => history.push('/home/detail')}
-      >
+      <Button type="primary" inline onClick={() => history.push('/detail')}>
         详情页面
       </Button>
-      <Button type="primary" inline onClick={() => history.push('/home/other')}>
+      <Button type="primary" inline onClick={() => history.push('/other')}>
         其他页面
       </Button>
     </div>

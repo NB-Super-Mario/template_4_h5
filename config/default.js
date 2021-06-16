@@ -1,7 +1,7 @@
 /*= =========react 相关========= */
 const ip = require('ip').address();
 
-const PORT = 9901;
+const PORT = 9009;
 let cookie;
 // 本地开发访问测试api 地址 ，必须http开头， // 开头代理不过
 const API_DOMAIN = 'http://demo.com/';
@@ -20,7 +20,7 @@ module.exports = {
       bypass: (req, res, proxyOptions) => {
         // if (req.headers.accept.indexOf('html') !== -1) {
         console.log('Skipping proxy for browser request.');
-        return '/home.html';
+        return '/index.html';
         // }
       },
     },

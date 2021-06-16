@@ -20,7 +20,7 @@ const routes = [
 const BaseRouter = () => {
   return (
     <div className="main">
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Switch>
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />

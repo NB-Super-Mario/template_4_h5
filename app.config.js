@@ -16,15 +16,15 @@ module.exports = {
   definePlugin: [
     {
       API_DOMAIN: JSON.stringify(apiDomain),
-      DOMAIN: JSON.stringify(domain)
-    }
+      DOMAIN: JSON.stringify(domain),
+    },
   ],
   alias: {
     '@components': path.resolve(cwd, 'src/scripts/components'),
     '@actions': path.resolve(cwd, 'src/scripts/actions'),
     '@api': path.resolve(cwd, 'src/scripts/api'),
     '@routes': path.resolve(cwd, 'src/scripts/routes'),
-    '@util': path.resolve(cwd, 'src/scripts/util')
+    '@util': path.resolve(cwd, 'src/scripts/util'),
   },
   domain,
   hostname,
@@ -40,8 +40,8 @@ module.exports = {
       'react-router-dom',
       'redux',
       'react-redux',
-      'connected-react-router'
-    ]
+      'connected-react-router',
+    ],
   },
   dllOutput: path.resolve(cwd, 'src', 'dll'),
   provideDefs: {
@@ -49,11 +49,11 @@ module.exports = {
     $: 'zepto',
     Zepto: 'zepto',
     'window.$': 'zepto',
-    'window.Zepto': 'zepto'
+    'window.Zepto': 'zepto',
   },
   externals: {
     zepto: 'Zepto',
-    zepto: '$'
+    zepto: '$',
   },
   alwaysWriteToDisk: true,
   minify: {
@@ -65,12 +65,12 @@ module.exports = {
   copyRes: [
     { from: 'src/static-res/mock', to: `${PREFIX_TARGET}static-mock` },
     { from: 'src/static-res/img', to: `${PREFIX_TARGET}static-img` },
-    { from: 'src/static-res/css', to: `${PREFIX_TARGET}static-css` }
+    { from: 'src/static-res/css', to: `${PREFIX_TARGET}static-css` },
   ],
   dev: {
     publicPath: domain,
     output: path.resolve(cwd, '__build'),
-    isOpenBrowser: false
+    isOpenBrowser: false,
   },
   build: {
     publicPath: domain,
@@ -78,9 +78,9 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report, // npm run build --report
     productionGzip: false,
     combo: false, // 预留字段
-    chunkhash: false
+    chunkhash: false,
   },
   isAntd: false,
   isBootstrap: false,
-  indexPage: 'home.html'
+  indexPage: 'index.html',
 };

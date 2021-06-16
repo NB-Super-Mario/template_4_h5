@@ -6,7 +6,7 @@ import App from './app';
 
 import './index.less';
 
-const Home = (): void => {
+const Home = () => {
   Common();
   render(<App />, document.getElementById('app'));
 };

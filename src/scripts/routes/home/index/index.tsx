@@ -11,22 +11,22 @@ import './index.less';
 const routes = [
   {
     exact: true, // 是否是默认
-    path: '/home',
+    path: '/',
     component: LoadableComponent(() => import('@routes/home/index/home'))(),
   },
   {
-    path: '/home/detail',
+    path: '/detail',
     component: LoadableComponent(() => import('@routes/home/detail'))(),
   },
   {
-    path: '/home/other',
+    path: '/other',
     component: LoadableComponent(() => import('@routes/home/other'))(),
   },
 ];
 
 const Index = () => (
   <div className="main-content">
-    <BrowserRouter>
+    <BrowserRouter basename="/home">
       <Switch>
         {routes.map((route, i) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
