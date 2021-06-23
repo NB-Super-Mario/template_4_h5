@@ -6,31 +6,34 @@ module.exports = {
     es6: true,
     amd: true,
     node: true,
-    mocha: true
+    mocha: true,
   },
   parserOptions: {
     project: './tsconfig.json',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
     jsx: true,
-    useJSXTextNode: true
+    useJSXTextNode: true,
+    ecmaVersion: 2020,
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import', 'react', 'prettier'],
   extends: [
     'airbnb',
     'airbnb/hooks',
-    'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:import/typescript',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
-
   rules: {
     strict: 0,
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react-hooks/exhaustive-deps': 0,
+    'max-classes-per-file': 1,
     'import/no-dynamic-require': 1,
     'import/order': 0,
     'react/jsx-filename-extension': 0,
@@ -52,28 +55,58 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'no-param-reassign': [
       2,
-      { props: true, ignorePropertyModificationsFor: ['draft'] }
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['draft'],
+      },
     ],
     'import/prefer-default-export': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'no-script-url': 0,
-    'prettier/prettier': [1, { singleQuote: true }],
+    'prettier/prettier': [
+      1,
+      {
+        singleQuote: true,
+      },
+    ],
     'import/extensions': 0,
     '@typescript-eslint/no-var-requires': 1,
-    yoda: 0
+    yoda: 0,
+    'react/jsx-props-no-spreading': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    'import/no-extraneous-dependencies': 0,
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.jsx', '.tsx'],
+      },
+    ],
+    'react/display-name': 0,
+    'no-shadow': 0,
+    'react/jsx-uses-react': 0,
+    'react/react-in-jsx-scope': 0,
   },
   globals: {
-    $: false
+    $: false,
+    ENVIRONMENT_NAME: false,
+    DOMAIN: false,
+    NEED_MOCK: false,
+    IS_DEV: false,
+    PREFIX_TARGET: false,
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx']
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
-    }
-  }
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+    react: {
+      version: 'detect', //Warning: React version not specified in eslint-plugin-react settings.
+    },
+  },
 };

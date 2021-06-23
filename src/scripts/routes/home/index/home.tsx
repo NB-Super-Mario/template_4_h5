@@ -1,18 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
 import { Button } from 'antd-mobile';
-import { hot } from 'react-hot-loader/root';
-import history from '../../history';
-
+import { useHistory } from 'react-router-dom';
 import './index.less';
+import CustomComponents from '@components/custom-components';
 
-const goToDetail = (): void => history.push('/home/detail');
-const Home = () => (
-  <div className="detail-bg">
-    <h1>首页</h1>
-    <Button type="primary" inline onClick={goToDetail}>
-      详情页面
-    </Button>
-  </div>
-);
+function Home() {
+  const history = useHistory();
+  const [test, setTest] = useState(1);
+  return (
+    <div className="detail-bg">
+      <h1>首页{test}</h1>
+      <Button type="primary" inline onClick={() => history.push('/detail')}>
+        详情页面
+      </Button>
+      <Button type="primary" inline onClick={() => history.push('/other')}>
+        其他页面
+      </Button>
+      <Button type="primary" inline onClick={() => setTest(3)}>
+        test btn
+      </Button>
+      <span className="m-top" />
+      <CustomComponents />
+    </div>
+  );
+}
 
-export default hot(Home);
+export default Home;

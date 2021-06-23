@@ -1,17 +1,21 @@
-import React from 'react';
-import { hot } from 'react-hot-loader/root';
-import history from '../../history';
+import { useHistory } from 'react-router-dom';
+
 import './index.less';
 
-const goBack = (): void => history.goBack();
+const Detail = () => {
+  const history = useHistory();
+  return (
+    <div className="reward-bg">
+      <h1>详情</h1>
+      <button
+        className="go-back-btn"
+        onClick={() => history.goBack()}
+        type="button"
+      >
+        返回首页
+      </button>
+    </div>
+  );
+};
 
-const Detail = () => (
-  <div className="reward-bg">
-    <h1>其他</h1>
-    <button className="go-back-btn" onClick={goBack} type="button">
-      返回首页
-    </button>
-  </div>
-);
-
-export default hot(Detail);
+export default Detail;

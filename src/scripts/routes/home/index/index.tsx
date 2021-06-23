@@ -1,48 +1,37 @@
-import React, { ReactNode } from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-import { Route, withRouter } from 'react-router-dom';
+import RouteWithSubRoutes from '@routes/routeWithSubRoutes';
 
-import { connect } from 'react-redux';
-
-import RouteWithSubRoutes from '../../routeWithSubRoutes';
-
-import { fetchFoo } from '@actions/foo';
-import Home from './home';
-import { LoadableComponent } from '../../loadable-component';
+import LoadableComponent from '@routes/loadable-component';
 
 import './index.less';
 
 const routes = [
   {
-    path: '/home/detail', // 年度荣誉
-    component: LoadableComponent(() => import('../detail'))()
+    exact: true, // 是否是默认
+    path: '/',
+    component: LoadableComponent(() => import('@routes/home/index/home'))(),
   },
   {
-    path: '/home/other', // 年度荣誉
-    component: LoadableComponent(() => import('../other'))()
-  }
+    path: '/detail',
+    component: LoadableComponent(() => import('@routes/home/detail'))(),
+  },
+  {
+    path: '/other',
+    component: LoadableComponent(() => import('@routes/home/other'))(),
+  },
 ];
 
-const Index = (props: any) => (
+const Index = () => (
   <div className="main-content">
-    {routes.map((route, i) => (
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      <RouteWithSubRoutes key={i} {...route} />
-    ))}
-    <Route exact path={props.match.url} render={(): ReactNode => <Home />} />
+    <BrowserRouter basename="/home">
+      <Switch>
+        {routes.map((route, i) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
+      </Switch>
+    </BrowserRouter>
   </div>
 );
-
-function mapStateToProps(state: any) {
-  return {
-    foo: state.foo
-  };
-}
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {
-      fetchFoo
-    }
-  )(Index)
-);
+export default Index;

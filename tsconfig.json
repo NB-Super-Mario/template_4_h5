@@ -3,10 +3,14 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/scripts/components/*"],
+      "@common/*": ["src/scripts/common/*"],
       "@actions/*": ["src/scripts/actions/*"],
       "@api/*": ["src/scripts/api/*"],
       "@routes/*": ["src/scripts/routes/*"],
-      "@util/*": ["src/scripts/util/*"]
+      "@util/*": ["src/scripts/util/*"],
+      "@hooks/*": ["src/scripts/hooks/*"],
+      "@constants/*": ["src/scripts/constants/*"],
+      "@containers/*": ["src/scripts/containers/*"]
     },
     "strict": true,
     "allowSyntheticDefaultImports": true,
@@ -16,7 +20,7 @@
     "sourceMap": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "lib": ["dom", "es2015", "es2016", "es2017", "esnext"],
     "forceConsistentCasingInFileNames": false,

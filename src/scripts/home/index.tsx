@@ -1,5 +1,3 @@
-import 'react-hot-loader';
-import React from 'react';
 import { render } from 'react-dom';
 import Common from '../common';
 
@@ -7,7 +5,7 @@ import App from './app';
 
 import './index.less';
 
-const Home = (): void => {
+const Home = () => {
   Common();
   render(<App />, document.getElementById('app'));
 };

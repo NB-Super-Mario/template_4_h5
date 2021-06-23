@@ -1,15 +1,11 @@
 @import '../../../css/common.less';
 @loadingIconPrefixClass: loading;
 @foreground: #ccc;
-@background: #fe9a00;
+@background: #fabe00;
 
 .@{loadingIconPrefixClass} {
   &-main {
-
-    // display: inline-block;
-    &.dib {
-      display: inline-block;
-    }
+    display: inline-block;
   }
 
   &-mask {
@@ -18,81 +14,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9999;
-  }
-
-  &-car {
-    width: 68/@rem;
-    height: 37/@rem;
-    background-image: url('./img/car.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
-    margin: 25/@rem auto 0;
-    position: relative;
-
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      width: 15/@rem;
-      height: 15/@rem;
-      position: absolute;
-      bottom: 0;
-      background-image: url('./img/wheel.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% 100%;
-    }
-
-    &::before {
-      left: 6.5/@rem;
-      .animation(car 0.6s infinite linear);
-    }
-
-    &::after {
-      right: 6.5/@rem;
-      background-size: 100% 100%;
-      transform: rotate(180deg);
-      .animation(car 0.6s infinite linear);
-    }
-
-    .c2c & {
-      width: 68/@rem;
-      height: 32/@rem;
-      background-image: url('./img/c2c-car.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% 100%;
-
-      &::before,
-      &::after {
-        content: '';
-        display: block;
-        width: 15/@rem;
-        height: 15/@rem;
-        position: absolute;
-        bottom: 0;
-        background-image: url('./img/c2c-wheel.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 100% 100%;
-      }
-
-      &::before {
-        left: 6/@rem;
-        .animation(car 0.5s infinite linear);
-      }
-
-      &::after {
-        right: 6/@rem;
-        .animation(car 0.5s infinite linear);
-      }
-    }
+    z-index: 99;
   }
 
   &-icon {
-
     .loader,
     .loader:after {
       border-radius: 50%;
@@ -104,10 +29,10 @@
     .loader {
       position: relative;
       text-indent: -9999em;
-      border-top: 1.5/@rem solid @foreground;
-      border-right: 1.5/@rem solid @foreground;
-      border-bottom: 1.5/@rem solid @foreground;
-      border-left: 1.5/@rem solid fade(@background, 100%);
+      border-top: 2px solid @foreground;
+      border-right: 2px solid @foreground;
+      border-bottom: 2px solid @foreground;
+      border-left: 2px solid fade(@background, 100%);
       -webkit-transform: translateZ(0);
       -ms-transform: translateZ(0);
       transform: translateZ(0);
@@ -118,25 +43,25 @@
 
   &.bg-type {
     position: absolute;
-    z-index: 9999;
+    z-index: 100;
     left: 50%;
     top: 50%;
-    .transform(translate3d(-50%, -50%, 1px));
-    height: 100/@rem;
-    width: 100/@rem;
-    background: rgba(0, 0, 0, .9);
-    .border-radius(5/@rem);
+    .transform(translateX(-50%) translateY(-50%));
+    height: 100px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    .border-radius(5px);
 
     .loader,
     .loader:after {
-      margin: 15/@rem auto 0;
-      height: 35/@rem;
-      width: 35/@rem;
+      margin: 10px auto 0;
+      height: 50px;
+      width: 50px;
     }
 
     .text-info {
-      padding-top: 10/@rem;
-      font-size: 14/@rem;
+      padding-top: 10px;
+      font-size: 16px;
       color: #fff;
       text-align: center;
       line-height: 1;
@@ -144,43 +69,43 @@
   }
 
   &.horizontal-type {
-    height: 20/@rem;
+    height: 20px;
     .clear-after();
 
     .loader,
     .loader:after {
-      height: 20/@rem;
-      width: 20/@rem;
+      height: 20px;
+      width: 20px;
     }
 
     .loading-icon {
       float: left;
-      height: 20/@rem;
+      height: 20px;
     }
 
     .text-info {
       float: left;
-      padding-left: 10/@rem;
-      font-size: 14/@rem;
+      padding-left: 10px;
+      font-size: 14px;
       color: #666;
       text-align: center;
-      line-height: 20/@rem;
+      line-height: 20px;
     }
   }
 
   &.vertical_type {
-    height: 45/@rem;
+    height: 45px;
 
     .loader,
     .loader:after {
-      margin: 15/@rem auto 0;
-      height: 30/@rem;
-      width: 30/@rem;
+      margin: 15px auto 0;
+      height: 30px;
+      width: 30px;
     }
 
     .text-info {
-      padding-top: 10/@rem;
-      font-size: 14/@rem;
+      padding-top: 10px;
+      font-size: 14px;
       color: #666;
       text-align: center;
       line-height: 1;
@@ -188,28 +113,28 @@
   }
 
   &.normal_type {
-    height: 20/@rem;
+    height: 20px;
     .clear-after();
 
     .loader,
     .loader:after {
-      height: 20/@rem;
-      width: 20/@rem;
+      height: 20px;
+      width: 20px;
     }
 
     .loading-icon {
       float: left;
-      height: 20/@rem;
+      height: 20px;
     }
 
     .text-info {
       display: none;
       float: left;
-      padding-left: 10/@rem;
-      font-size: 14/@rem;
+      padding-left: 10px;
+      font-size: 14px;
       color: #666;
       text-align: center;
-      line-height: 20/@rem;
+      line-height: 20px;
     }
   }
 }
@@ -230,16 +155,6 @@
 
   100% {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes car {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
     transform: rotate(360deg);
   }
 }
