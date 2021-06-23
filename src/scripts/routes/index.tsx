@@ -1,4 +1,3 @@
-import React from 'react';
 import { Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import RouteWithSubRoutes from '@routes/routeWithSubRoutes';
 
@@ -17,7 +16,7 @@ const routes = [
   },
 ];
 
-const BaseRouter = () => {
+export default function BaseRouter() {
   return (
     <div className="main">
       <BrowserRouter basename="/">
@@ -29,11 +28,9 @@ const BaseRouter = () => {
       </BrowserRouter>
     </div>
   );
-};
+}
 
 /**
  * 根据json 动态配置路由
  * @param {*} route
  */
-
-export default BaseRouter;

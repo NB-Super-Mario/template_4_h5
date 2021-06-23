@@ -30,6 +30,8 @@ module.exports = {
   ],
   rules: {
     strict: 0,
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 0,
     'max-classes-per-file': 1,
     'import/no-dynamic-require': 1,

@@ -19,6 +19,7 @@ module.exports = {
       DOMAIN: JSON.stringify(domain),
     },
   ],
+  confWebpack: {},
   alias: {
     '@components': path.resolve(cwd, 'src/scripts/components'),
     '@actions': path.resolve(cwd, 'src/scripts/actions'),
@@ -76,8 +77,8 @@ module.exports = {
     publicPath: domain,
     output: path.resolve(cwd, 'target', `${pkg.name}`),
     bundleAnalyzerReport: process.env.npm_config_report, // npm run build --report
-    productionGzip: false,
-    combo: false, // 预留字段
+    productionGzip: true,
+    combo: true, // 预留字段
     chunkhash: false,
   },
   isAntd: false,
